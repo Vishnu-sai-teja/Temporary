@@ -3,24 +3,10 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("************* Welcome *************");
-        System.out.println("*** Choose one of the options ***");
-        System.out.println("\t1.Librarian\n\t2.Admin");
-        System.out.print(" Enter your option : ");
-        Scanner temp = new Scanner(System.in);
-        int option = temp.nextInt();
-        if (option > 2 && option < 0) {
-            System.out.println("Choose a VALID Option");
-            exit(0);
-        }
-        else{
-            switch(option){
-                case 1 :
-                    System.out.print(" Welcome Librarian enter your name : ");
-                    temp = new Scanner(System.in);
-                    String name = temp.next();
-                    System.out.println("\t1.AddBooks\n\t2.EditBooks\n\t3.ViewBooks\n\t4.Exit()");
+    
+    static void admin()
+    {
+    System.out.println("\t1.AddBooks\n\t2.EditBooks\n\t3.ViewBooks\n\t4.Exit()");
                     System.out.print("Choose one of the above options : ");
                     temp = new Scanner(System.in);
                     int opt = temp.nextInt();
@@ -65,9 +51,11 @@ public class Main {
                     }
                     break;
                 case 2 :
-                    System.out.print(" Welcome Admin enter your name : ");
+                    System.out.print(" Welcome Admin Enter your Username: ");
                     temp = new Scanner(System.in);
                     name = temp.next();
+                    
+                    System.out.print(" Enter your Password: ");
                     System.out.println("\n\t1.AddLibrarian\n\t2.EditLibrarian\n\t3.ViewLibrarian\n\t4.Exit");
                     System.out.println("Choose one of the option from above : ");
                     temp = new Scanner(System.in);
@@ -114,7 +102,38 @@ public class Main {
                             exit(0);
                             break;
 
+                    }}
+    public static void main(String[] args) {
+        System.out.println("************* Welcome *************");
+        System.out.println("*** Choose one of the options ***");
+        System.out.println("\t1.Librarian\n\t2.Admin");
+        System.out.print(" Enter your option : ");
+        Scanner temp = new Scanner(System.in);
+        int option = temp.nextInt();
+        if (option > 2 && option < 0) {
+            System.out.println("Choose a VALID Option");
+            exit(0);
+        }
+        else{
+            switch(option){
+                case 1 :
+                    Scanner input = new Scanner(System.in);
+                    
+                    String username, password;
+                    
+                    System.out.print("Enter the username:");
+                    username=input.nextLine();
+                    
+                    System.out.print("Enter the Password:");
+                    password=input.nextLine();
+                    
+                    if((username.equals("Rohith")) && (password.equals("623626")))
+                    {System.out.print("Welcome Admin");
+                     admin();
+                    }else {
+                    System.out.print("You have entered the wrong username or password ");
                     }
+                    
             }
         }
     }
